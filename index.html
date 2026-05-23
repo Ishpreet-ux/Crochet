@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HADMADE 🧶 – Crochet Shop</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loader">
+  <div class="loader-yarn">🧶</div>
+  <div class="loader-text">Untangling the yarn…</div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div id="toast">Added to cart!</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <a href="#home" class="nav-brand">HADMADE</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#instagram">Insta</a>
+    <a href="#custom">Custom</a>
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart
+      <span id="cart-count">0</span>
+    </button>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="home">
+  <span class="hero-deco"></span>
+  <span class="hero-deco"></span>
+  <span class="hero-deco"></span>
+  <span class="hero-deco"></span>
+
+  <div class="hero-badge">New arrivals every week!</div>
+  <h1 class="hero-title">Handmade with <em>Love</em> &<br/>a lot of Yarn</h1>
+  <p class="hero-sub">Cozy crochet plushies, accessories & keychains — each piece stitched with care, just for you.</p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+    <button class="btn-outline" onclick="document.getElementById('custom').scrollIntoView({behavior:'smooth'})">Request Custom</button>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">200+</div><div class="label">Happy Customers</div></div>
+    <div class="hero-stat"><div class="num">100%</div><div class="label">Handmade</div></div>
+    <div class="hero-stat"><div class="num">30+</div><div class="label">Designs</div></div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="section-head">
+    <div class="section-tag"> Why us?</div>
+    <h2 class="section-title">Crafted with Care</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon"></div><div class="feature-title">100% Handmade</div><div class="feature-desc">Every stitch is made by hand with love & premium yarn.</div></div>
+    <div class="feature-card"><div class="feature-icon"></div><div class="feature-title">Custom Orders</div><div class="feature-desc">Want a specific colour or design? Just ask!</div></div>
+    <div class="feature-card"><div class="feature-icon"></div><div class="feature-title">Fast Delivery</div><div class="feature-desc">Pan-India shipping, packed cutely every time.</div></div>
+    <div class="feature-card"><div class="feature-icon"></div><div class="feature-title">Gift Wrapping</div><div class="feature-desc">Free gift wrapping & a handwritten note on request.</div></div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <div class="section-head">
+    <div class="section-tag">Our Collection</div>
+    <h2 class="section-title">Cozy Creations</h2>
+    <p class="section-sub">Handcrafted with premium yarn & full of personality.</p>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section id="instagram">
+  <div class="section-head">
+    <div class="section-tag">@loopyandco</div>
+    <h2 class="section-title">Seen on Instagram</h2>
+    <p class="section-sub">Follow us for sneak peeks, new drops & behind-the-scenes!</p>
+  </div>
+  <div class="insta-grid">
+    <div class="insta-cell" style="background:linear-gradient(135deg,#f9c6d0,#d8c6f0)"></div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#b8edd8,#f9c6d0)"></div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#d8c6f0,#b8edd8)"></div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#fde8c8,#f9c6d0)"></div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#f9c6d0,#b8edd8)"></div>
+    <div class="insta-cell" style="background:linear-gradient(135deg,#d8c6f0,#fde8c8)"></div>
+  </div>
+  <div class="insta-btn">
+    <a href="https://instagram.com" target="_blank" class="btn-primary" style="text-decoration:none">📸 Follow on Instagram</a>
+  </div>
+</section>
+
+<!-- ===== CUSTOM ORDER ===== -->
+<section id="custom">
+  <div class="section-head">
+    <div class="section-tag">Special Request</div>
+    <h2 class="section-title">Custom Order</h2>
+    <p class="section-sub">Have something specific in mind? Tell us and we'll crochet it!</p>
+  </div>
+  <div class="custom-box">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="cname" placeholder="e.g. Priya Sharma" />
+    </div>
+    <div class="form-group">
+      <label>Phone / Instagram</label>
+      <input type="text" id="ccontact" placeholder="@yourhandle or 9876543210" />
+    </div>
+    <div class="form-group">
+      <label>What would you like?</label>
+      <textarea id="cdesc" rows="4" placeholder="e.g. A pink bunny plushie with a bow, approx 20cm…"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Budget (₹)</label>
+      <input type="text" id="cbudget" placeholder="e.g. ₹300–₹500" />
+    </div>
+    <button class="btn-primary" style="width:100%" onclick="submitCustomOrder()">Send Request 💌</button>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">Loopy & Co.</div>
+  <div class="footer-tagline">Handmade crochet goodness from India 🇮🇳</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#custom">Custom</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+  </div>
+  <div class="footer-copy">Made with yarn & love· © 2025 Loopy & Co.</div>
+</footer>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Basket</h2>
+    <button class="close-cart" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="total-price" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal" id="checkoutModal">
+    <div class="modal-head">
+      <h2>Checkout</h2>
+      <button class="close-cart" onclick="closeCheckout()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-title">Order Summary</div>
+      <div class="order-summary" id="orderSummary"></div>
+
+      <div class="modal-section-title">Your Details</div>
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" id="oName" placeholder="Priya Sharma" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" id="oPhone" placeholder="9876543210" />
+      </div>
+      <div class="form-group">
+        <label>Delivery Address *</label>
+        <textarea id="oAddress" rows="3" placeholder="Flat 12, Rose Garden, Jaipur – 302001"></textarea>
+      </div>
+
+      <div class="modal-section-title">Payment Method</div>
+      <div class="payment-methods">
+        <div class="pay-option selected" data-method="UPI" onclick="selectPay(this)">
+          <div class="pay-icon"></div>UPI / GPay
+        </div>
+        <div class="pay-option" data-method="COD" onclick="selectPay(this)">
+          <div class="pay-icon"></div>Cash on Delivery
+        </div>
+        <div class="pay-option" data-method="Bank Transfer" onclick="selectPay(this)">
+          <div class="pay-icon"></div>Bank Transfer
+        </div>
+      </div>
+
+      <button class="place-order-btn" id="placeOrderBtn" onclick="placeOrder()">
+        <span>✨ Place My Order</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONFIRMATION POPUP ===== -->
+<div class="confetti-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confetti-dots">
+      <div class="confetti-dot"></div><div class="confetti-dot"></div>
+      <div class="confetti-dot"></div><div class="confetti-dot"></div>
+      <div class="confetti-dot"></div>
+    </div>
+    <div class="confirm-emoji"></div>
+    <h2>Order Placed!</h2>
+    <p>Yay! Your order has been received and is being lovingly packed. <br/>We'll reach out soon on your number.</p>
+    <button class="btn-primary" onclick="closeConfirm()">Keep Shopping</button>
+  </div>
+</div>
+</body>
+</html>
